@@ -34,7 +34,7 @@ along with this program; if not, see {http://www.gnu.org/licenses/}. */
 #include <QString>
 #include <QIcon>
 
-#include "utilities.h"
+#include <cprime/utilities.h>
 
 
 class coreterminal : public QTermWidget
@@ -45,7 +45,6 @@ public :
     coreterminal(QWidget *parent =nullptr);
     coreterminal(const QString &workDir, QWidget *parent = nullptr);
     coreterminal(const QString &workDir, const QString &command, QWidget *parent = nullptr);
-
     QString currentWorkingDirectory();
 
 private:
