@@ -10,7 +10,7 @@ TARGET = coreterminal
 TEMPLATE = app
 
 # library for theme and qtermWidget
-unix:!macx: LIBS += /usr/lib/libcprime.a
+unix:!macx: LIBS += -lcprime
 unix:!macx: LIBS += -lqtermwidget5
 
 SOURCES += \

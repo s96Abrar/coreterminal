@@ -82,12 +82,7 @@ coreterminal::coreterminal(QWidget *parent) : QTermWidget(0, parent)
     oldCWD = QFileInfo(QString("/proc/%1/cwd").arg(getShellPID())).symLinkTarget();
     connect(watcher, SIGNAL(directoryChanged(const QString&)), this, SLOT(handleFSWSignals(QString)));
 
-    setFocus();
-
-    // Properties
-    setWindowIcon(QIcon(":/app/icons/app-icons/CoreTerminal.svg"));
-    setWindowTitle("CoreTerminal");
-    setObjectName("coreterminal");
+    setFocus(); 
 }
 
 coreterminal::coreterminal(const QString &workDir, QWidget *parent) : QTermWidget(0, parent)
@@ -151,11 +146,6 @@ coreterminal::coreterminal(const QString &workDir, QWidget *parent) : QTermWidge
     startShellProgram();
 
     setFocus();
-
-    // Properties
-    setWindowIcon(QIcon(":/app/icons/app-icons/CoreTerminal.svg"));
-    setWindowTitle("CoreTerminal");
-    setObjectName("coreterminal");
 }
 
 coreterminal::coreterminal(const QString &workDir, const QString &command, QWidget *parent) : QTermWidget(0, parent)
@@ -234,11 +224,6 @@ coreterminal::coreterminal(const QString &workDir, const QString &command, QWidg
 
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
-
-    // Properties
-    setWindowIcon(QIcon(":/app/icons/app-icons/CoreTerminal.svg"));
-    setWindowTitle("CoreTerminal");
-    setObjectName("coreterminal");
 }
 
 QString coreterminal::currentWorkingDirectory()

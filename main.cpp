@@ -19,6 +19,7 @@ along with this program; if not, see {http://www.gnu.org/licenses/}. */
 #include <QApplication>
 #include <QFont>
 #include <QStyleFactory>
+#include <QCommandLineParser>
 
 #include <cprime/utilities.h>
 #include <cprime/settingsmanage.h>
@@ -56,6 +57,24 @@ int main(int argc, char *argv[])
     // Set application info
     app.setOrganizationName("CoreBox");
     app.setApplicationName("CoreTerminal");
+    app.setWindowIcon(QIcon(":/icons/CoreTerminal.svg"));
+
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    const QString files = "[FILE1, FILE2,...]";
+    parser.addPositionalArgument("files", files, files);
+
+    parser.process(app);
+
+    QStringList args = parser.positionalArguments();
+
+    QStringList paths;
+    foreach (QString arg, args) {
+      QFileInfo info(arg);
+      paths.push_back(info.absoluteFilePath());
+    }
 
     coreterminal e;
     e.show();
