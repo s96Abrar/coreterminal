@@ -4,6 +4,6 @@ Comment=CoreTerminal is a terminal emulator from CoreApps.
 Exec=coreterminal %F
 Icon=/usr/share/icons/CoreApps/CoreTerminal.svg
 Type=Application
-Categories=System;Qt;Utility:
+Categories=System;Qt;Utility;TerminalEmulator;
 Terminal=false
 StartupNotify=true
