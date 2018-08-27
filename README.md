@@ -12,6 +12,7 @@ An app of CoreApps family.CoreTerminal is a terminal emulator.
 ### Dependencies:
 * qt5
 * libcprime
+* qtermwidget
 
 ## Tested In
 * Manjaro xfce (Arch).
