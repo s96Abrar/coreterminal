@@ -76,8 +76,13 @@ int main(int argc, char *argv[])
       paths.push_back(info.absoluteFilePath());
     }
 
-    coreterminal e;
-    e.show();
+    if (paths.count()) {
+        coreterminal *cterm = new coreterminal(paths.count() ? paths.at(0) : "", "");
+        cterm->show();
+    } else {
+        coreterminal *cterm = new coreterminal(QDir::homePath(), "");
+        cterm->show();
+    }
 
     return app.exec();
 }

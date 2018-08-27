@@ -200,7 +200,15 @@ coreterminal::coreterminal(const QString &workDir, const QString &command, QWidg
     //How many lines going to be in one window.
     setHistorySize(100000);
 
-    setWorkingDirectory(workDir);
+    if (workDir.count() && QFileInfo(workDir).isDir()) {
+        setWorkingDirectory(workDir);
+    } else if (workDir.count() && QFileInfo(workDir).isFile()) {
+        setWorkingDirectory(QFileInfo(workDir).path());
+    } else {
+        setWorkingDirectory(currentWorkingDirectory());
+    }
+
+
     QStringList shArgs = QStringList() << "-il" << "-c" << command;			//.split( QRegExp( "\\s+" ), QString::SkipEmptyParts );
 
     setShellProgram("/bin/bash");
